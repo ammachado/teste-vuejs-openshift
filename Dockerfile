@@ -1,12 +1,22 @@
+# build stage
+FROM node:alpine as build-stage
+
+WORKDIR /app
+
+COPY . .
+
+RUN npm install && npm run build
+
+
+##############
+
 FROM nginx:1.17
 
 COPY ./nginx.conf /etc/nginx/nginx.conf
 
 WORKDIR /code
 
-RUN npm install && npm run build
-
-COPY ./dist .
+COPY --from=build-stage /app/dist .
 
 EXPOSE 8080:8080
 

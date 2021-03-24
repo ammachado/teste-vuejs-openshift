@@ -3,7 +3,7 @@
     <img alt="Vue logo" src="./assets/logo.png">
 
     <!-- Injeção de variáveis do config.js -->
-    <p>Injected URL: { window._env_.baseUrl }</p>
+    <p>Injected URL: {{ _env_.baseUrl }}</p>
     <!-- Injeção de variáveis do config.js -->
 
     <HelloWorld msg="Welcome to Your Vue.js App"/>
